@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Mayor Adventure Blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header class="container row px-5">
-        <div class="logo col-sm-3">
-            <h1>Mayor</h1>
-        </div>
+    <header class="container-fluid px-lg-5 px-3">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="logo">
+                    <h1>Mayor</h1>
+                </div>
+            </div>
 
-        <!-- Hamburger Button -->
-        <div class="col-sm-1 d-flex justify-content-end align-items-center">
-            <button class="navbar-toggler" type="button" id="offcanvasToggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-
-        <div class="col-sm-7 mt-3 d-none d-sm-flex">
-                <nav class="d-flex gap-5 bar">
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Destination</li>
-                        <li>Blog</li>
-                        <li>Contact</li>
+            <div class="col-lg-7 d-none d-lg-block">
+                <nav>
+                    <ul class="d-flex gap-4 bar mb-0">
+                        <li><a href="#" class="nav-link">Home</a></li>
+                        <li><a href="#" class="nav-link">About</a></li>
+                        <li><a href="#" class="nav-link">Destination</a></li>
+                        <li><a href="#" class="nav-link">Blog</a></li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                    </ul>
                 </nav>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-6 d-flex justify-content-end">
+                <button class="navbar-toggler d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <i class="fas fa-bars fs-1" style="color: var(--primary-color);"></i>
+                </button>
+                <button type="button" class="btn-primary d-none d-lg-block">Subscribe</button>
+            </div>
         </div>
 
-        <div class="col-sm-1 mt-2 d-none d-sm-block">
-                <button type="button" class="clo">Subscribe</button>
-        </div>
-
-        <!-- Offcanvas Menu -->
+        
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
@@ -54,184 +55,266 @@
                         <a class="nav-link" href="#">Destination</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>c+
+                        <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                     <li class="nav-item mt-3">
-                        <button type="button" class="clo w-100">Subscribe</button>
+                        <button type="button" class="btn-primary w-100">Subscribe</button>
                     </li>
                 </ul>
             </div>
-
-            <footer class="text-dark text-center ">
-                <p class="mb-0">© 2025 Mayor Adventure Blog. All rights reserved.</p>
-                <small>Follow us on:
-                  <a href="#" class="text-dark ms-2 text-decoration-none">Instagram</a> |
-                  <a href="#" class="text-dark ms-2 text-decoration-none">YouTube</a>
-                </small>
-            </footer>
         </div>
-
-        <!-- <script>
-            document.getElementById('offcanvasToggle').addEventListener('click', function () {
-                var offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasMenu'));
-                offcanvas.show();
-            });
-            const backToTop = document.getElementById("backToTop");
-
-            window.onscroll = () => {
-                backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-            };
-
-            backToTop.onclick = () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
-
-        </script> -->
-
     </header>
 
     <section class="hero-section">
-        <h1 class="text-center  text">Explore the Wild, <br> Live the Story</h1>
-        <p class="text-center text1">inspiring travel guides, nature stories & <br>adventure tips.</p>
-        <button type="button" class="mx-auto d-block clo">Start Exploring</button>
+        <h1 class="text">Explore the Wild, <br> Live the Story</h1>
+        <p class="text1">Inspiring travel guides, nature stories & adventure tips.</p>
+        <button type="button" class="btn-primary">Start Exploring</button>
     </section>
 
-    <section class="fro">
-        <h4 class="fea">Featured Blog Posts</h4>
-        <div class="card-container">
-  
-        <div class="card">
-            <img src="./adam.jpg" alt="Ancient Forest" class="card-image">
-            <div class="card-content">
-            <h2 class="card-title">Journey Through Ancient Forests</h2>
-            <p class="card-description">
-                Discover the magic of timeless woods and their hidden secrets.
-            </p>
-            <a href="#" class="card-link">Read More</a>
+    <section class="fro container">
+        
+        <h4 class="section-title">Top Destinations</h4>
+        
+        <div class="destination-grid">
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Denali" class="destination-image">
+                <h3 class="destination-title">Denali</h3>
+                <p class="destination-subtitle">Alaska</p>
             </div>
-        </div>
-
-        <div class="card">
-            <img src="./adam.jpg" alt="Ancient Forest" class="card-image">
-            <div class="card-content">
-            <h2 class="card-title">Journey Through Ancient Forests</h2>
-            <p class="card-description">
-                Discover the magic of timeless woods and their hidden secrets.
-            </p>
-            <a href="#" class="card-link">Read More</a>
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Plitvice Lakes" class="destination-image">
+                <h3 class="destination-title">Plitvice Lakes</h3>
+                <p class="destination-subtitle">Croatia</p>
+            </div>
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Patagonia" class="destination-image">
+                <h3 class="destination-title">Patagonia</h3>
+                <p class="destination-subtitle">Chile</p>
+            </div>
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Banff" class="destination-image">
+                <h3 class="destination-title">Banff</h3>
+                <p class="destination-subtitle">Canada</p>
+            </div>
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Fiordland" class="destination-image">
+                <h3 class="destination-title">Fiordland</h3>
+                <p class="destination-subtitle">New Zealand</p>
+            </div>
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Sahara Desert" class="destination-image">
+                <h3 class="destination-title">Sahara Desert</h3>
+                <p class="destination-subtitle">Morocco</p>
             </div>
         </div>
         
-        <div class="card">
-            <img src="./adam.jpg" alt="Ancient Forest" class="card-image">
-            <div class="card-content">
-            <h2 class="card-title">Journey Through Ancient Forests</h2>
-            <p class="card-description">
-                Discover the magic of timeless woods and their hidden secrets.
-            </p>
-            <a href="#" class="card-link">Read More</a>
+        
+        <div class="destination-carousel">
+            <div id="destinationCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4">
+                                <div class="destination-card">
+                                    <img src="./adam.jpg" alt="Denali National Park" class="destination-image">
+                                    <div class="destination-content">
+                                        <h3 class="destination-title">Denali National Park</h3>
+                                        <p class="destination-subtitle">Alaska, USA</p>
+                                        <p class="destination-description">
+                                            Home to North America's tallest peak, this vast wilderness offers breathtaking landscapes and wildlife viewing.
+                                        </p>
+                                        <a href="#" class="destination-link">Explore →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="destination-card">
+                                    <img src="./adam.jpg" alt="Plitvice Lakes" class="destination-image">
+                                    <div class="destination-content">
+                                        <h3 class="destination-title">Plitvice Lakes</h3>
+                                        <p class="destination-subtitle">Croatia</p>
+                                        <p class="destination-description">
+                                            A UNESCO World Heritage site with stunning turquoise lakes connected by waterfalls and set in deep woodland.
+                                        </p>
+                                        <a href="#" class="destination-link">Explore →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="destination-card">
+                                    <img src="./adam.jpg" alt="Patagonia" class="destination-image">
+                                    <div class="destination-content">
+                                        <h3 class="destination-title">Patagonia</h3>
+                                        <p class="destination-subtitle">Chile & Argentina</p>
+                                        <p class="destination-description">
+                                            A region of stunning beauty with glaciers, mountains, and unique wildlife at the end of the world.
+                                        </p>
+                                        <a href="#" class="destination-link">Explore →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4">
+                                <div class="destination-card">
+                                    <img src="./adam.jpg" alt="Banff National Park" class="destination-image">
+                                    <div class="destination-content">
+                                        <h3 class="destination-title">Banff National Park</h3>
+                                        <p class="destination-subtitle">Canada</p>
+                                        <p class="destination-description">
+                                            Canada's first national park, famous for its turquoise lakes and dramatic Rocky Mountain scenery.
+                                        </p>
+                                        <a href="#" class="destination-link">Explore →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="destination-card">
+                                    <img src="./adam.jpg" alt="Fiordland" class="destination-image">
+                                    <div class="destination-content">
+                                        <h3 class="destination-title">Fiordland National Park</h3>
+                                        <p class="destination-subtitle">New Zealand</p>
+                                        <p class="destination-description">
+                                            Home to the famous Milford Sound with its towering peaks, waterfalls and abundant marine life.
+                                        </p>
+                                        <a href="#" class="destination-link">Explore →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="destination-card">
+                                    <img src="./adam.jpg" alt="Sahara Desert" class="destination-image">
+                                    <div class="destination-content">
+                                        <h3 class="destination-title">Sahara Desert</h3>
+                                        <p class="destination-subtitle">Morocco</p>
+                                        <p class="destination-description">
+                                            The world's largest hot desert with stunning dunes, oases, and a rich nomadic culture.
+                                        </p>
+                                        <a href="#" class="destination-link">Explore →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#destinationCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#destinationCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
+        
+        <h4 class="section-title">Featured Blog Posts</h4>
+        <div class="card-container">
+            <div class="card">
+                <img src="./adam.jpg" alt="Ancient Forest" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">Journey Through Ancient Forests</h2>
+                    <p class="card-description">
+                        Discover the magic of timeless woods and their hidden secrets.
+                    </p>
+                    <a href="#" class="card-link">Read More →</a>
+                </div>
+            </div>
 
-        <div class="card">
-            <img src="./adam.jpg" alt="Ancient Forest" class="card-image">
-            <div class="card-content">
-            <h2 class="card-title">Journey Through Ancient Forests</h2>
-            <p class="card-description">
-                Discover the magic of timeless woods and their hidden secrets.
-            </p>
-            <a href="#" class="card-link">Read More</a>
+            <div class="card">
+                <img src="./adam.jpg" alt="Mountain Peak" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">Summit of Serenity</h2>
+                    <p class="card-description">
+                        Conquer the heights and find peace at the world's majestic peaks.
+                    </p>
+                    <a href="#" class="card-link">Read More →</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="./adam.jpg" alt="Desert Oasis" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">Desert Oasis Secrets</h2>
+                    <p class="card-description">
+                        Uncover the hidden gems in the vast sandy landscapes.
+                    </p>
+                    <a href="#" class="card-link">Read More →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="./adam.jpg" alt="Coastal Wonders" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">Coastal Wonders</h2>
+                    <p class="card-description">
+                        Explore breathtaking coastlines and marine life adventures.
+                    </p>
+                    <a href="#" class="card-link">Read More →</a>
+                </div>
             </div>
         </div>
-
-        </div>
-
-        <h4 class="fes">Top Destination</h4>
-        <div class="location-card-container">
-
-            <div class="location-card">
-                <img src="./adam.jpg" alt="Denali" class="location-image">
-                <h3 class="location-title">Denali</h3>
-                <p class="location-subtitle">Alaska</p>
-            </div>
-
-            <div class="location-card">
-                <img src="./adam.jpg" alt="Plitvice Lakes" class="location-image">
-                <h3 class="location-title">Plitvice Lakes</h3>
-                <p class="location-subtitle">Croatia</p>
-            </div>
-            <div class="location-card">
-                <img src="./adam.jpg" alt="Plitvice Lakes" class="location-image">
-                <h3 class="location-title">Plitvice Lakes</h3>
-                <p class="location-subtitle">Croatia</p>
-            </div>
-            <div class="location-card">
-                <img src="./adam.jpg" alt="Plitvice Lakes" class="location-image">
-                <h3 class="location-title">Plitvice Lakes</h3>
-                <p class="location-subtitle">Croatia</p>
-            </div>
-            <div class="location-card">
-                <img src="./adam.jpg" alt="Plitvice Lakes" class="location-image">
-                <h3 class="location-title">Plitvice Lakes</h3>
-                <p class="location-subtitle">Croatia</p>
-            </div>
-            <div class="location-card">
-                <img src="./adam.jpg" alt="Plitvice Lakes" class="location-image">
-                <h3 class="location-title">Plitvice Lakes</h3>
-                <p class="location-subtitle">Croatia</p>
-            </div>
-
-            <div class="location-card">
-                <img src="../adam.jpg" alt="Sahara Desert" class="location-image">
-                <h3 class="location-title">Sahara Desert</h3>
-                <p class="location-subtitle">Morocco</p>
-            </div>
-
-        </div>
-
+        
         <div class="newsletter">
             <div class="newsletter-content">
                 <h2>Get weekly adventure tips</h2>
+                <p>Stay updated with our latest travel stories and destination guides</p>
                 <div class="newsletter-form">
                     <input type="email" placeholder="Enter your email">
                     <button>Subscribe</button>
                 </div>
             </div>
         </div>
-
-        <footer class="text-dark text-center ">
-            <p class="mb-0">© 2025 Mayor Adventure Blog. All rights reserved.</p>
-            <small>Follow us on:
-              <a href="#" class="text-dark ms-2 text-decoration-none">Instagram</a> |
-              <a href="#" class="text-dark ms-2 text-decoration-none">YouTube</a>
-            </small>
-        </footer>
-          
-
-        <button type="button" class="btn btn-success position-fixed bottom-0 end-0 m-4" id="backToTop">
-            ↑
-          </button>
     </section>
-    <script>
-        document.getElementById('offcanvasToggle').addEventListener('click', function () {
-            var offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasMenu'));
-            offcanvas.show();
-        });
-        const backToTop = document.getElementById("backToTop");
 
-        window.onscroll = () => {
-            backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-        };
+    <footer>
+        <p class="mb-2">© 2025 Mayor Adventure Blog. All rights reserved.</p>
+        <small>Follow us on:
+            <a href="#" class="ms-2">Instagram</a> |
+            <a href="#" class="ms-2">YouTube</a> |
+            <a href="#" class="ms-2">Twitter</a>
+        </small>
+    </footer>
 
-        backToTop.onclick = () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-
-    </script>
+    <div class="back-to-top" id="backToTop">
+        ↑
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth >= 992) {
+                var destinationCarousel = new bootstrap.Carousel(document.getElementById('destinationCarousel'), {
+                    interval: 5000,
+                    wrap: true,
+                    pause: 'hover'
+                });
+            }
+            
+          
+            const backToTop = document.getElementById("backToTop");
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
