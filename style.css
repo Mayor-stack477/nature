@@ -170,7 +170,7 @@ header {
 
 /* Destination Section Styles */
 .destination-section {
-  padding: 40px 0;
+  padding: 40px;
 }
 
 /* Mobile Grid View (shown by default) */
@@ -192,9 +192,9 @@ header {
   margin-bottom: 20px;
 }
 
-.destination-card:hover {
+/* .destination-card:hover {
   transform: scale(1.05);
-}
+} */
 
 .destination-image {
   width: 100%;
@@ -219,7 +219,7 @@ header {
 .destination-carousel {
   display: none;
   position: relative;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .destination-carousel .carousel-inner {
@@ -227,8 +227,8 @@ header {
 }
 
 .destination-carousel .carousel-item {
-  padding: 0 15px;
   transition: transform 0.5s ease;
+  background-color: transparent;
 }
 
 .destination-carousel .destination-card {
@@ -283,11 +283,11 @@ header {
 }
 
 .carousel-control-prev {
-  left: -20px;
+  left: -40px;
 }
 
 .carousel-control-next {
-  right: -20px;
+  right: -40px;
 }
 
 .carousel-control-prev-icon, 
