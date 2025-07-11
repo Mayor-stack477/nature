@@ -6,7 +6,7 @@
     <title>Mayor Adventure Blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header class="container-fluid px-lg-5 px-3">
@@ -250,21 +250,21 @@
         </small>
     </footer>
 
-    <div class="back-to-top" id="backToTop">
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
         ↑
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Initialize carousel
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize carousel
             var destinationCarousel = new bootstrap.Carousel(document.getElementById('destinationCarousel'), {
                 interval: 2000,
                 wrap: true,
                 pause: 'hover'
             });
             
-            // Back to top button
+            // Enhanced back to top button with smooth scroll
             const backToTop = document.getElementById("backToTop");
             
             window.addEventListener('scroll', () => {
@@ -275,12 +275,92 @@
                 }
             });
             
-            backToTop.addEventListener('click', () => {
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
+
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add intersection observer for scroll animations
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.hero-section, .card, .destination-card, .section-title, .newsletter');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                elements.forEach(element => {
+                    observer.observe(element);
+                });
+            };
+
+            animateOnScroll();
+
+            // Mobile touch smooth scrolling enhancement
+            let touchStartY = 0;
+            let touchEndY = 0;
+            let lastScrollTime = 0;
+
+            document.addEventListener('touchstart', (e) => {
+                touchStartY = e.changedTouches[0].screenY;
+                lastScrollTime = Date.now();
+            }, {passive: true});
+
+            document.addEventListener('touchend', (e) => {
+                touchEndY = e.changedTouches[0].screenY;
+                handleSwipe();
+            }, {passive: true});
+
+            function handleSwipe() {
+                // Only trigger for significant swipes (more than 50px) and not during momentum scrolling
+                if (Math.abs(touchEndY - touchStartY) > 50 && (Date.now() - lastScrollTime) > 100) {
+                    const currentScroll = window.pageYOffset;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (touchEndY < touchStartY) {
+                        // Swipe up - scroll down
+                        window.scrollTo({
+                            top: currentScroll + windowHeight * 0.8,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // Swipe down - scroll up
+                        window.scrollTo({
+                            top: Math.max(0, currentScroll - windowHeight * 0.8),
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
         });
     </script>
 </body>
