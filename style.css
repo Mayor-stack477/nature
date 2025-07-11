@@ -380,84 +380,83 @@ footer a {
     
     .text {
         font-size: 50px;
-        padding: 0 15px; /* Added padding for better text containment */
+        padding: 0 15px; 
     }
     
     .text1 {
         font-size: 16px;
-        padding: 0 15px; /* Added padding */
+        padding: 0 15px; 
     }
     
     .fro {
-        padding: 20px 15px; /* Adjusted from 30px 0px 10px 10px to be more balanced */
-        margin: 15px auto; /* Reduced margin for better space utilization */
+        padding: 20px 15px; 
+        margin: 15px auto; 
     }
     
     .section-title {
-        padding-left: 15px; /* Consistent left padding */
-        margin-bottom: 20px; /* Slightly reduced margin */
+        padding-left: 15px; 
+        margin-bottom: 20px; 
     }
     
     .card-container {
-        gap: 20px; /* Increased gap for better separation */
-        justify-content: center; /* Center cards on mobile */
-        padding: 0 10px; /* Added side padding */
+        gap: 20px; 
+        justify-content: center; 
+        padding: 0 10px; 
     }
     
     .card {
-        width: 100%; /* Full width cards on mobile */
+        width: 100%; 
         max-width: 350px;
-        margin-bottom: 25px; /* Increased bottom margin */
+        margin-bottom: 25px; 
     }
     
     .destination-carousel {
-        padding: 15px 0; /* Reduced vertical padding */
+        padding: 15px 0; 
     }
     
     .destination-carousel .carousel-item {
-        padding: 0 10px; /* Reduced side padding */
+        padding: 0 10px; 
     }
     
     .newsletter {
-        padding: 40px 15px; /* Reduced padding for newsletter */
-        margin: 30px 0; /* Adjusted margins */
+        padding: 40px 15px; 
+        margin: 30px 0; 
     }
     
     .newsletter-form input,
     .newsletter-form button {
-        width: 100%; /* Full width form elements */
+        width: 100%; 
     }
     
     .carousel-control-prev {
-        left: 5px; /* Adjusted position */
+        left: 5px; 
     }
     
     .carousel-control-next {
-        right: 5px; /* Adjusted position */
+        right: 5px; 
     }
 }
 
-/* Extra small devices (phones, 576px and down) */
 @media (max-width: 576px) {
     .text {
         font-size: 40px;
-        line-height: 1.2; /* Better line height for readability */
+        line-height: 1.2; 
     }
     
     .fro {
-        padding: 15px 10px; /* Even more compact padding */
-        border-radius: 8px; /* Slightly smaller radius */
+        padding: 15px 10px; 
+        border-radius: 8px; 
     }
     
     .destination-image {
-        height: 160px; /* Slightly reduced height */
+        height: 160px; 
     }
     
     .destination-content {
-        padding: 10px 0; /* Reduced padding */
+        padding: 10px 0;
     }
     
     footer {
-        padding: 20px 15px; /* Adjusted footer padding */
+        padding: 20px 15px; 
     }
 }
