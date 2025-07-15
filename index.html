@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <title>Mayor Adventure Blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="container-fluid px-lg-5 px-3">
@@ -22,7 +23,60 @@
                     <ul class="d-flex gap-4 bar mb-0">
                         <li><a href="#" class="nav-link">Home</a></li>
                         <li><a href="#" class="nav-link">About</a></li>
-                        <li><a href="#" class="nav-link">Destination</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Destination</a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-grid">
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">By Region</h6>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/us.png" alt="USA"> North America
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/eu.png" alt="Europe"> Europe
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/as.png" alt="Asia"> Asia
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/sa.png" alt="South America"> South America
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">By Interest</h6>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-mountain icon"></i> Mountain Adventures
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-umbrella-beach icon"></i> Beach Getaways
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-city icon"></i> Urban Explorations
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-hiking icon"></i> Hiking Trails
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">Featured</h6>
+                                        <div class="featured-destination">
+                                            <img src="./adam.jpg" alt="Denali" class="featured-image">
+                                            <div class="featured-content">
+                                                <div class="featured-title">Denali National Park</div>
+                                                <div class="featured-subtitle">Alaska, USA</div>
+                                            </div>
+                                        </div>
+                                        <div class="featured-destination">
+                                            <img src="./adam.jpg" alt="Plitvice" class="featured-image">
+                                            <div class="featured-content">
+                                                <div class="featured-title">Plitvice Lakes</div>
+                                                <div class="featured-subtitle">Croatia</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li><a href="#" class="nav-link">Blog</a></li>
                         <li><a href="#" class="nav-link">Contact</a></li>
                     </ul>
@@ -39,44 +93,124 @@
 
         <!-- Offcanvas Menu -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Destination</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item mt-3">
-                        <button type="button" class="btn-primary w-100">Subscribe</button>
-                    </li>
-                </ul>
-            </div>
-
-            <footer>
-                <p class="mb-2">© 2025 Mayor Adventure Blog. All rights reserved.</p>
-                <small>Follow us on:
-                    <a href="#" class="ms-2">Instagram</a> |
-                    <a href="#" class="ms-2">YouTube</a> |
-                    <a href="#" class="ms-2">Twitter</a>
-                </small>
-            </footer>
-        </div>
-    </header>
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold" id="offcanvasMenuLabel">Mayor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
     
+    <div class="offcanvas-body">
+        <ul class="navbar-nav">
+            <!-- Main Menu Items -->
+            <li class="nav-item mb-2">
+                <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            
+            <!-- Destinations Dropdown - Mobile Optimized -->
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle d-flex justify-content-between align-items-center pe-3" 
+                   href="#" 
+                   id="mobileDestinationsDropdown" 
+                   role="button"
+                   data-bs-toggle="collapse" 
+                   data-bs-target="#mobileDestinationsMenu"
+                   aria-expanded="false"
+                   aria-controls="mobileDestinationsMenu">
+                    <span>Destinations</span>
+                    <i class="fas fa-chevron-down ms-2 small transition-rotate"></i>
+                </a>
+                
+                <div class="collapse" id="mobileDestinationsMenu">
+                    <ul class="list-unstyled shadow-sm border-0 mb-2 ps-3 py-2">
+                    <!-- By Region Section -->
+                    <li>
+                        <h6 class="dropdown-header text-uppercase small py-2 px-3 d-flex justify-content-between align-items-center">
+                            <span>By Region</span>
+                            <i class="fas fa-globe-americas"></i>
+                        </h6>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                            <img src="https://flagcdn.com/w20/us.png" alt="USA" width="20" class="me-2">
+                            North America
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                            <img src="https://flagcdn.com/w20/eu.png" alt="Europe" width="20" class="me-2">
+                            Europe
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                            <img src="https://flagcdn.com/w20/sa.png" alt="South America" width="20" class="me-2">
+                            South America
+                        </a>
+                    </li>
+                    
+                    <li><hr class="dropdown-divider mx-3 my-1"></li>
+                    
+                    <!-- By Interest Section -->
+                    <li>
+                        <h6 class="dropdown-header text-uppercase small py-2 px-3 d-flex justify-content-between align-items-center">
+                            <span>By Interest</span>
+                            <i class="fas fa-heart"></i>
+                        </h6>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                            <i class="fas fa-mountain me-2"></i>
+                            Mountain Adventures
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                            <i class="fas fa-umbrella-beach me-2"></i>
+                            Beach Getaways
+                        </a>
+                    </li>
+                </div>
+            </li>
+
+             <li class="nav-item mb-2">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+
+             <li class="nav-item mb-2">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+            
+            <!-- Subscribe Button -->
+            <li class="nav-item mt-3 mb-2">
+                <button type="button" class="btn btn-primary w-100 rounded-pill py-2">
+                    <i class="fas fa-paper-plane me-2"></i> Subscribe
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="offcanvas-footer p-3 border-top bg-light">
+        <p class="mb-2 small text-muted">© 2025 Mayor Adventure Blog. All rights reserved.</p>
+        <div class="d-flex align-items-center">
+            <span class="small me-2">Follow us:</span>
+            <a href="#" class="text-decoration-none me-3 text-dark">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-decoration-none me-3 text-dark">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-decoration-none text-dark">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+    </header>
+
     <section class="hero-section">
         <h1 class="text">Explore the Wild, <br> Live the Story</h1>
         <p class="text1">Inspiring travel guides, nature stories & adventure tips.</p>
@@ -98,6 +232,19 @@
                                 <p class="destination-subtitle">Alaska, USA</p>
                                 <p class="destination-description">
                                     Home to North America's tallest peak, this vast wilderness offers breathtaking landscapes and wildlife viewing.
+                                </p>
+                                <a href="#" class="destination-link">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="destination-card">
+                            <img src="./adam.jpg" alt="Plitvice Lakes" class="destination-image">
+                            <div class="destination-content">
+                                <h3 class="destination-title">Plitvice Lakes</h3>
+                                <p class="destination-subtitle">Croatia</p>
+                                <p class="destination-description">
+                                    A UNESCO World Heritage site with stunning turquoise lakes connected by waterfalls and set in deep woodland.
                                 </p>
                                 <a href="#" class="destination-link">Explore →</a>
                             </div>
@@ -189,12 +336,12 @@
                 <div class="card-content">
                     <h2 class="card-title">Journey Through Ancient Forests</h2>
                     <p class="card-description">
-                        Discover the magic of timeless woods and their hidden secrets.
+                        Discover the magic of timeless  woods and their hidden secrets.
                     </p>
                     <a href="#" class="card-link">Read More →</a>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <img src="./adam.jpg" alt="Ancient Forest" class="card-image">
                 <div class="card-content">
                     <h2 class="card-title">Journey Through Ancient Forests</h2>
@@ -203,7 +350,7 @@
                     </p>
                     <a href="#" class="card-link">Read More →</a>
                 </div>
-            </div>
+            </div> -->
             
             <div class="card">
                 <img src="./adam.jpg" alt="Desert Oasis" class="card-image">
