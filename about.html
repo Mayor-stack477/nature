@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Mayor Adventure Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reuse all your existing styles from the main page */
+        :root {
+            --primary-color: rgb(17, 45, 17);
+            --dropdown-bg: rgba(255, 255, 255, 0.98);
+            --dropdown-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            --section-padding: 60px 0;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            height: 50px;
+            border-radius: 5px;
+            padding: 0 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary:hover{
+            background-color: rgb(12, 32, 12);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(17, 45, 17, 0.2);
+        }
+
+        /* All your existing styles... keep them exactly as they are */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            padding: 0;
+        }
+
+        .navbar-toggler {
+            border: none;
+            margin-top: 0;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .active {
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .bar{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .logo h1{
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+
+        .nav-item.dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-radius: 12px;
+            box-shadow: var(--dropdown-shadow);
+            padding: 20px;
+            margin-top: 10px;
+            background: var(--dropdown-bg);
+            width: 800px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid rgba(17, 45, 17, 0.08);
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 5px;
+        }
+
+        .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: 6px;
+            vertical-align: middle;
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .dropdown-column {
+            padding: 5px;
+        }
+
+        .dropdown-header {
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 8px 0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(17, 45, 17, 0.1);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-item {
+            padding: 10px 12px;
+            color: #333;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(17, 45, 17, 0.05);
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+
+        .dropdown-item img {
+            width: 24px;
+            height: 16px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-right: 12px;
+            box-shadow: 0 0 2px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-item .icon {
+            width: 20px;
+            margin-right: 12px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        /* Featured Destination in Dropdown */
+        .featured-destination {
+            grid-column: span 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+
+        .featured-destination:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-destination:hover .featured-image {
+            transform: scale(1.05);
+        }
+
+        .featured-content {
+            padding: 12px;
+        }
+
+        .featured-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .featured-subtitle {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Offcanvas menu styles */
+        .offcanvas {
+            max-width: 300px;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .offcanvas-body {
+            padding: 20px;
+        }
+
+/* Mobile dropdown styles */
+@media (max-width: 992px) {
+    .dropdown-menu {
+        width: 100%;
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        border: none;
+        margin-top: 0;
+        transition: none;
+    }
+
+    .dropdown-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .dropdown-header {
+        padding-left: 15px;
+        margin-top: 15px;
+        font-size: 0.9rem;
+        border-bottom: none;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+    }
+
+    .dropdown-item {
+        padding: 12px 30px;
+        margin-bottom: 0;
+        border-radius: 0;
+        border-left: 3px solid transparent;
+        transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: rgba(17, 45, 17, 0.05);
+        border-left: 3px solid var(--primary-color);
+        transform: none;
+    }
+
+    .dropdown-item img,
+    .dropdown-item .icon {
+        margin-right: 15px;
+    }
+
+    .show .dropdown-menu {
+        display: block;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        margin-top: 10px;
+        padding: 5px 0;
+    }
+
+    /* Offcanvas specific dropdown styles */
+    .offcanvas-body .dropdown-menu {
+        background-color: transparent;
+        padding-left: 15px;
+        border-left: 1px solid rgba(17, 45, 17, 0.1);
+        margin-left: 15px;
+    }
+
+    .offcanvas-body .dropdown-item {
+        padding-left: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .carousel-control-prev {
+        left: 5px;
+    }
+    
+    .carousel-control-next {
+        right: 5px;
+    }
+}
+
+/* Enhanced mobile dropdown styles */
+.nav-link.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-toggle .fa-chevron-down {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-toggle[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Better spacing for dropdown items */
+.dropdown-item + .dropdown-header {
+    margin-top: 15px;
+}
+
+/* Divider style */
+.dropdown-divider {
+    border-color: rgba(17, 45, 17, 0.1);
+    margin: 8px 0;
+}
+
+/* Animation for dropdown items */
+@keyframes fadeInDropdown {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-item {
+    animation: fadeInDropdown 0.3s ease forwards;
+}
+
+.dropdown-item:nth-child(1) { animation-delay: 0.1s; }
+.dropdown-item:nth-child(2) { animation-delay: 0.15s; }
+.dropdown-item:nth-child(3) { animation-delay: 0.2s; }
+.dropdown-item:nth-child(4) { animation-delay: 0.25s; }
+.dropdown-item:nth-child(5) { animation-delay: 0.3s; }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .text {
+        font-size: 3.5rem;
+    }
+    
+    .card {
+        width: calc(50% - 20px);
+    }
+    
+    .dropdown-menu {
+        width: 700px;
+    }
+}
+
+@media (max-width: 992px) {
+    .text {
+        font-size: 3rem;
+    }
+    
+    .dropdown-menu {
+        width: 600px;
+    }
+    
+    .carousel-control-prev {
+        left: 5%;
+    }
+    
+    .carousel-control-next {
+        right: 5%;
+    }
+}
+
+        
+    /* Add these new styles for the about page */
+    .about-hero {
+        background-image: linear-gradient(rgba(17, 45, 17, 0.7), rgba(17, 45, 17, 0.7)), url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 120px 0;
+        text-align: center;
+        color: white;
+    }
+
+    .about-hero h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .about-hero p {
+        font-size: 1.25rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
+
+    .story-section {
+        padding: 80px 0;
+        background-color: white;
+    }
+
+    .story-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .story-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .values-section {
+        background-color: #f8f9fa;
+        padding: 80px 0;
+    }
+
+    .value-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .value-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .value-icon {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(17, 45, 17, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+    }
+
+    .team-section {
+        padding: 80px 0;
+        background-color: white;
+    }
+
+    .team-member {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    .stats-section {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .about-hero {
+            padding: 80px 0;
+        }
+        
+        .about-hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .story-section, .values-section, .team-section {
+            padding: 50px 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="container-fluid px-lg-5 px-3">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="logo">
+                    <h1>Mayor</h1>
+                </div>
+            </div>
+
+            <div class="col-lg-7 d-none d-lg-block">
+                <nav>
+                    <ul class="d-flex gap-4 bar mb-0">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link active">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Destination</a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-grid">
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">By Region</h6>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/us.png" alt="USA"> North America
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/eu.png" alt="Europe"> Europe
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/as.png" alt="Asia"> Asia
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/sa.png" alt="South America"> South America
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">By Interest</h6>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-mountain icon"></i> Mountain Adventures
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-umbrella-beach icon"></i> Beach Getaways
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-city icon"></i> Urban Explorations
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-hiking icon"></i> Hiking Trails
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">Featured</h6>
+                                        <div class="featured-destination">
+                                            <img src="./adam.jpg" alt="Denali" class="featured-image">
+                                            <div class="featured-content">
+                                                <div class="featured-title">Denali National Park</div>
+                                                <div class="featured-subtitle">Alaska, USA</div>
+                                            </div>
+                                        </div>
+                                        <div class="featured-destination">
+                                            <img src="./adam.jpg" alt="Plitvice" class="featured-image">
+                                            <div class="featured-content">
+                                                <div class="featured-title">Plitvice Lakes</div>
+                                                <div class="featured-subtitle">Croatia</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-6 d-flex justify-content-end">
+                <button class="navbar-toggler d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <i class="fas fa-bars fs-1" style="color: var(--primary-color);"></i>
+                </button>
+                <button type="button" class="btn-primary d-none d-lg-block">Subscribe</button>
+            </div>
+        </div>
+
+        <!-- Offcanvas Menu (same as your main page) -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title fw-bold" id="offcanvasMenuLabel">Mayor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex justify-content-between align-items-center pe-3" 
+                           href="#" 
+                           id="mobileDestinationsDropdown" 
+                           role="button"
+                           data-bs-toggle="collapse" 
+                           data-bs-target="#mobileDestinationsMenu"
+                           aria-expanded="false"
+                           aria-controls="mobileDestinationsMenu">
+                            <span>Destinations</span>
+                            <i class="fas fa-chevron-down ms-2 small transition-rotate"></i>
+                        </a>
+                        
+                        <div class="collapse" id="mobileDestinationsMenu">
+                            <ul class="list-unstyled shadow-sm border-0 mb-2 ps-3 py-2">
+                                <li>
+                                    <h6 class="dropdown-header text-uppercase small py-2 px-3 d-flex justify-content-between align-items-center">
+                                        <span>By Region</span>
+                                        <i class="fas fa-globe-americas"></i>
+                                    </h6>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                        <img src="https://flagcdn.com/w20/us.png" alt="USA" width="20" class="me-2">
+                                        North America
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                        <img src="https://flagcdn.com/w20/eu.png" alt="Europe" width="20" class="me-2">
+                                        Europe
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                        <img src="https://flagcdn.com/w20/sa.png" alt="South America" width="20" class="me-2">
+                                        South America
+                                    </a>
+                                </li>
+                                
+                                <li><hr class="dropdown-divider mx-3 my-1"></li>
+                                
+                                <li>
+                                    <h6 class="dropdown-header text-uppercase small py-2 px-3 d-flex justify-content-between align-items-center">
+                                        <span>By Interest</span>
+                                        <i class="fas fa-heart"></i>
+                                    </h6>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                        <i class="fas fa-mountain me-2"></i>
+                                        Mountain Adventures
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                        <i class="fas fa-umbrella-beach me-2"></i>
+                                        Beach Getaways
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    
+                     <li class="nav-item mt-3 mb-2">
+                        <button type="button" class="btn btn-primary w-100 rounded-pill py-2">
+                        <i class="fas fa-paper-plane me-2"></i> Subscribe
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="offcanvas-footer p-3 border-top bg-light">
+                <p class="mb-2 small text-muted">© 2025 Mayor Adventure Blog. All rights reserved.</p>
+                <div class="d-flex align-items-center">
+                    <span class="small me-2">Follow us:</span>
+                    <a href="#" class="text-decoration-none me-3 text-dark">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3 text-dark">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none text-dark">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    About Hero Section
+    <section class="about-hero">
+        <div class="container">
+            <h1>Our Adventure Story</h1>
+            <p>Discover the passion behind our journeys and the team that makes it all possible</p>
+            <a href="#our-story" class="btn btn-light btn-lg px-4 py-2">Explore Our Journey</a>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section" id="our-story">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Who We Are</h2>
+                    <p class="lead">We're a collective of passionate explorers, storytellers, and adventure seekers dedicated to bringing you authentic travel experiences.</p>
+                    <p>Founded in 2015 by Sarah Johnson, Mayor began as a personal travel blog documenting backpacking adventures across Southeast Asia. What started as a passion project has grown into a trusted resource for thousands of travelers worldwide.</p>
+                    <p>Our mission is simple: to inspire responsible travel and help adventurers discover the world's hidden gems while preserving their natural beauty for future generations.</p>
+                    <a href="#" class="btn btn-outline-primary mt-3">Meet Our Team</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Our team hiking" 
+                             class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p class="lead">The principles that guide every adventure we share</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sustainable Travel</h3>
+                        <p>We promote eco-friendly practices and support local communities to ensure our adventures leave positive impacts on the places we visit.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Authentic Experiences</h3>
+                        <p>We go beyond tourist spots to bring you genuine cultural encounters and off-the-beaten-path discoveries that most travelers miss.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community First</h3>
+                        <p>We believe travel should benefit local populations as much as travelers, fostering mutual understanding and economic support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">8+</div>
+                    <p>Years of Adventure</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">127</div>
+                    <p>Countries Covered</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">500K</div>
+                    <p>Monthly Readers</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">24</div>
+                    <p>Team Members</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Meet The Adventurers</h2>
+                    <p class="lead">The passionate team behind Mayor Adventure Blog</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                        <h3>Sarah Johnson</h3>
+                        <p class="text-muted">Founder & Lead Explorer</p>
+                        <p>With a backpack and camera, Sarah has visited over 80 countries and started Mayor to share authentic travel stories.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-primary mx-2"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        <h3>Michael Chen</h3>
+                        <p class="text-muted">Photography Director</p>
+                        <p>Michael captures the essence of each destination through his lens, bringing our stories to life with stunning visuals.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-primary mx-2"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Aisha Mohammed">
+                        <h3>Aisha Mohammed</h3>
+                        <p class="text-muted">Sustainability Expert</p>
+                        <p>Aisha ensures our adventures respect local ecosystems and cultures while maximizing positive community impact.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-primary mx-2"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary px-4 py-2">View Full Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h3 class="fw-bold mb-3">Ready to start your adventure?</h3>
+                    <p class="mb-0">Join our community of explorers and get exclusive travel tips straight to your inbox.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#" class="btn btn-primary btn-lg px-4">Subscribe Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-4"><i class="fas fa-mountain me-2"></i>Mayor</h5>
+                    <p>Inspiring authentic travel experiences and responsible adventures since 2015.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-dark me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-dark me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-dark"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-4">Explore</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted">Destinations</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Travel Guides</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Adventure Tips</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Photo Stories</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-4">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Our Team</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Careers</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-muted">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-4">Newsletter</h6>
+                    <p class="text-muted mb-3">Subscribe to get our latest travel stories and tips.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-muted mb-0">© 2025 Mayor Adventure Blog. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small text-muted mb-0">
+                        <a href="#" class="text-muted me-3">Privacy Policy</a>
+                        <a href="#" class="text-muted">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Reuse all your existing JavaScript from the main page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top button
+            const backToTop = document.getElementById("backToTop");
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.section-title, .value-card, .team-member');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                elements.forEach(element => {
+                    observer.observe(element);
+                });
+            };
+
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
