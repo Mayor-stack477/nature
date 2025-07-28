@@ -85,7 +85,7 @@ header {
 }
 
 .hero-section{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(./urban.jpg);
+     background-image: linear-gradient(rgba(36, 142, 75, 0.3), rgba(18, 149, 27, 0.3)), url('./urban.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

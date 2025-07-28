@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Mayor Adventure Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./blog.css">
+</head>
+<body>
+    <header class="container-fluid px-lg-5 px-3">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="logo">
+                    <h1>Mayor</h1>
+                </div>
+            </div>
+
+            <div class="col-lg-7 d-none d-lg-block">
+                <nav>
+                    <ul class="d-flex gap-4 list-unstyled mb-0">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link ">Destinations</a>
+                            <div class="dropdown-menu">
+                                <!-- Search Bar -->
+                                <div class="dropdown-search p-3 border-bottom">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white border-end-0">
+                                            <i class="fas fa-search text-muted"></i>
+                                        </span>
+                                        <input type="text" class="form-control border-start-0 dropdown-search-input" 
+                                               placeholder="Search destinations..." aria-label="Search destinations">
+                                    </div>
+                                </div>
+                                <div class="dropdown-grid">
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">By Region</h6>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/ng.png" alt="Nigeria"> Nigeria
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/ke.png" alt="Kenya"> Kenya
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/za.png" alt="South Africa"> South Africa
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="https://flagcdn.com/w20/gh.png" alt="Ghana"> Ghana
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">By Interest</h6>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-mountain icon"></i> Mountain Adventures
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-umbrella-beach icon"></i> Beach Getaways
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-city icon"></i> Urban Explorations
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-hiking icon"></i> Hiking Trails
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">Featured</h6>
+                                        <div class="featured-destination">
+                                            <img src="./adam.jpg" alt="Jos Plateau" class="featured-image">
+                                            <div class="featured-content">
+                                                <div class="featured-title">Jos Plateau</div>
+                                                <div class="featured-subtitle">Nigeria</div>
+                                            </div>
+                                        </div>
+                                        <div class="featured-destination">
+                                            <img src="./adam.jpg" alt="Waterfalls" class="featured-image">
+                                            <div class="featured-content">
+                                                <div class="featured-title">Nigerian Waterfalls</div>
+                                                <div class="featured-subtitle">Various Locations</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-6 d-flex justify-content-end">
+                <button class="navbar-toggler d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <i class="fas fa-bars fs-1" style="color: var(--primary-color);"></i>
+                </button>
+                <button type="button" class="btn-primary d-none d-lg-block">Subscribe</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offcanvas Mobile Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasMenuLabel">Mayor</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                
+                <!-- Destinations Dropdown - Mobile Optimized -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex justify-content-between align-items-center pe-3 active" 
+                       href="#" 
+                       id="mobileDestinationsDropdown" 
+                       role="button"
+                       data-bs-toggle="collapse" 
+                       data-bs-target="#mobileDestinationsMenu"
+                       aria-expanded="false"
+                       aria-controls="mobileDestinationsMenu">
+                        <span>Destinations</span>
+                        <i class="fas fa-chevron-down ms-2 small transition-rotate"></i>
+                    </a>
+                    
+                    <div class="collapse" id="mobileDestinationsMenu">
+                        <ul class="list-unstyled shadow-sm border-0 mb-2 ps-3 py-2">
+                            <!-- By Region Section -->
+                            <li>
+                                <h6 class="dropdown-header text-uppercase small py-2 px-3 d-flex justify-content-between align-items-center">
+                                    <span>By Region</span>
+                                    <i class="fas fa-globe-americas"></i>
+                                </h6>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <img src="https://flagcdn.com/w20/ng.png" alt="Nigeria" width="20" class="me-2">
+                                    Nigeria
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <img src="https://flagcdn.com/w20/ke.png" alt="Kenya" width="20" class="me-2">
+                                    Kenya
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <img src="https://flagcdn.com/w20/za.png" alt="South Africa" width="20" class="me-2">
+                                    South Africa
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <img src="https://flagcdn.com/w20/gh.png" alt="Ghana" width="20" class="me-2">
+                                    Ghana
+                                </a>
+                            </li>
+                            
+                            <li><hr class="dropdown-divider mx-3 my-1"></li>
+                            
+                            <!-- By Interest Section -->
+                            <li>
+                                <h6 class="dropdown-header text-uppercase small py-2 px-3 d-flex justify-content-between align-items-center">
+                                    <span>By Interest</span>
+                                    <i class="fas fa-heart"></i>
+                                </h6>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <i class="fas fa-mountain me-2"></i>
+                                    Mountain Adventures
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <i class="fas fa-umbrella-beach me-2"></i>
+                                    Beach Getaways
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <i class="fas fa-city me-2"></i>
+                                    Urban Explorations
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 px-3 d-flex align-items-center" href="#">
+                                    <i class="fas fa-hiking me-2"></i>
+                                    Hiking Trails
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                
+                <!-- Subscribe Button -->
+                <li class="nav-item mt-3 mb-2">
+                    <button type="button" class="btn btn-primary w-100 rounded-pill py-2">
+                        <i class="fas fa-paper-plane me-2"></i> Subscribe
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="offcanvas-footer p-3 border-top bg-light">
+            <p class="mb-2 small text-muted">© 2025 Mayor Adventure Blog. All rights reserved.</p>
+            <div class="d-flex align-items-center">
+                <span class="small me-2">Follow us:</span>
+                <a href="#" class="text-decoration-none me-3 text-dark">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-decoration-none me-3 text-dark">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-decoration-none text-dark">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="destinations-hero">
+        <h1 class="trav">Travel Stories & Adventures</h1>
+        <p class="trav">Real stories from the road, practical travel tips, and inspiration for your next adventure</p>
+        <!-- <button type="button" class="btn-primary">Start Exploring</button> -->
+    </section>
+
+    <div class="destination-container">
+        <h2 class="section-title">Featured Article</h2>
+        
+        <div class="destination-grid">
+            <!-- Destination 1 -->
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Hidden Waterfalls" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Nigeria</span>
+                        <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                        <span><i class="fas fa-location-dot"></i> Jos, Nigeria</span>
+                        <span class="read-time"><i class="far fa-clock"></i> 12 min read</span>
+                    </div>
+                    <h3 class="card-title">Hidden Waterfalls of Nigeria</h3>
+                    <p class="card-description">
+                        Discover the most spectacular waterfalls tucked away in Nigeria's lush forests. From thundering cascades to serene pools, these hidden gems offer breathtaking views and unforgettable swimming experiences.
+                    </p>
+                    <a href="#" class="card-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Destination 2 -->
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Jos Plateau" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Jos, Nigeria</span>
+                        <span class="read-time"><i class="far fa-clock"></i> 12 min read</span>
+                        <span><i class="fas fa-location-dot"></i> Various</span>
+                        <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3 class="card-title">Camping Under the Stars - Jos Plateau</h3>
+                    <p class="card-description">
+                        Experience the magic of sleeping under a blanket of stars on the Jos Plateau. This highland adventure combines stunning night skies with cool mountain air and breathtaking landscapes.
+                    </p>
+                    <a href="#" class="card-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Destination 3 -->
+            <div class="destination-card">
+                <img src="./adam.jpg" alt="Solo Hiking" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Various</span>
+                        <span class="read-time"><i class="far fa-clock"></i> Various</span>
+                        <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3 class="card-title">Beginner's Guide to Solo Hiking</h3>
+                    <p class="card-description">
+                        Everything you need to know about starting your solo hiking journey in Nigeria's diverse landscapes. From safety tips to essential gear, discover how to explore nature on your own terms.
+                    </p>
+                    <a href="#" class="card-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>© 2025 Mayor Adventure Blog. All rights reserved.</p>
+        <p>Follow us on social media:</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize desktop dropdown functionality
+            const desktopDropdowns = document.querySelectorAll('.dropdown:not(.offcanvas-body .dropdown)');
+            
+            desktopDropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function() {
+                    const menu = this.querySelector('.dropdown-menu');
+                    if (menu) {
+                        menu.style.opacity = '1';
+                        menu.style.visibility = 'visible';
+                        menu.style.marginTop = '5px';
+                    }
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    const menu = this.querySelector('.dropdown-menu');
+                    if (menu) {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.marginTop = '10px';
+                    }
+                });
+            });
+
+            // Search functionality
+            const searchInputs = document.querySelectorAll('.dropdown-search-input');
+            
+            searchInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const items = this.closest('.dropdown-menu').querySelectorAll('.dropdown-item, .featured-destination');
+                    
+                    let hasResults = false;
+                    
+                    items.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.style.display = 'flex';
+                            hasResults = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // Handle no results
+                    const noResults = this.closest('.dropdown-menu').querySelector('.no-results');
+                    if (!hasResults && searchTerm.length > 0) {
+                        if (!noResults) {
+                            const noResultsMsg = document.createElement('div');
+                            noResultsMsg.className = 'no-results p-3 text-muted';
+                            noResultsMsg.textContent = 'No destinations found';
+                            this.closest('.dropdown-grid').appendChild(noResultsMsg);
+                        }
+                    } else if (noResults) {
+                        noResults.remove();
+                    }
+                });
+            });
+
+            // Mobile dropdown arrows
+            const mobileDropdownToggles = document.querySelectorAll('[data-bs-toggle="collapse"]');
+            mobileDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-chevron-down');
+                        icon.classList.toggle('fa-chevron-up');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

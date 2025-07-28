@@ -431,7 +431,7 @@ header {
 }
 
 .about-hero {
-    background-image: linear-gradient(rgba(17, 45, 17, 0.7), rgba(17, 45, 17, 0.7)), url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80');
+ background-image: linear-gradient(rgba(36, 142, 75, 0.3), rgba(18, 149, 27, 0.3)), url('./urban.jpg');
     background-size: cover;
     background-position: center;
     padding: 120px 0;

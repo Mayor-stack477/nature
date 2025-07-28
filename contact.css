@@ -479,7 +479,7 @@ footer a:hover {
 
 /* Contact Page Specific Styles */
 .contact-hero {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('./urban.jpg');
+     background-image: linear-gradient(rgba(36, 142, 75, 0.3), rgba(18, 149, 27, 0.3)), url('./urban.jpg');
     background-size: cover;
     background-position: center;
     padding: 100px 20px;
@@ -488,14 +488,16 @@ footer a:hover {
 }
 
 .contact-hero h1 {
-    font-size: 3rem;
+    font-size: 4.5rem;
     color: var(--primary-color);
+    font-weight: bold;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-.contact-hero p {
+.tex{
     font-size: 1.2rem;
-    color: var(--primary-color);
+    color: white;
     max-width: 700px;
     margin: 0 auto 30px;
 }
