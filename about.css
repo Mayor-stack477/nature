@@ -525,11 +525,12 @@ header {
     text-align: center;
 }
 
-.stat-number {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+.counter {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
 }
+
 
 @media (max-width: 768px) {
     .about-hero {
